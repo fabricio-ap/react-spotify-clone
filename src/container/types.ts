@@ -1,0 +1,4 @@
+export enum DiTypes {
+  HTTP_CLIENT = 'HTTP_CLIENT',
+  SPOTIFY_SERVICE = 'SPOTIFY_SERVICE',
+}
