@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.29.2",
+    "antd": "^5.16.2",
     "axios": "^1.6.8",
     "classnames": "^2.5.1",
     "inversify": "^6.0.2",

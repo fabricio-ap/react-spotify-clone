@@ -1,0 +1,24 @@
+.button {
+  cursor: pointer;
+  width: fit-content;
+  height: auto;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: hsla(0, 0%, 100%, 0.1);
+  border-radius: 32px;
+  color: #fff;
+
+  border: 0;
+
+  &__label {
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}

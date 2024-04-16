@@ -7,12 +7,17 @@ import { useQuery } from '@tanstack/react-query';
 export function useCurrentUser() {
   const spotifyService = diContainer.get<ISpotifyService>(DiTypes.SPOTIFY_SERVICE);
 
-  const { data: user } = useQuery<IUser | undefined>({
+  const {
+    data: user,
+    isLoading,
+    isFetching,
+  } = useQuery<IUser | undefined>({
     queryKey: ['currentUser'],
     queryFn: () => spotifyService.getCurrentUser(),
   });
 
   return {
     user,
+    isLoading: isLoading || isFetching,
   };
 }

@@ -16,40 +16,21 @@
     background: $background-base;
   }
 
-  &__menu {
+  &__list {
     padding: 8px 12px;
-  }
-
-  &__playlist {
   }
 }
 
-.menu {
-  &__item {
-    padding: 4px 12px;
-  }
+.playlist {
+  height: 100%;
 
-  &__link {
-    min-height: 40px;
+  &__title {
+    padding: 4px 12px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    text-decoration: none;
-
-    color: $link-base;
-    transition: color 0.15s ease-in;
-
-    &--active {
-      color: $link-hover;
-    }
-
-    &:hover {
-      color: $link-hover;
-    }
-  }
-
-  &__label {
+    gap: 8px;
     font-size: 1rem;
     font-weight: 700;
+    cursor: default;
   }
 }

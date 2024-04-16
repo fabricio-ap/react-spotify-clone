@@ -6,11 +6,14 @@ export type IconName = keyof typeof icons;
 interface IIcon extends HTMLAttributes<HTMLDivElement> {
   icon: IconName;
   className?: string;
+  size?: number;
 }
 
-export function Icon({ icon, className, ...props }: IIcon) {
+export function Icon({ icon, className, size, ...props }: IIcon) {
+  const _size = `${size || 24}px`;
+
   const element = createElement(icons[icon], {
-    style: { width: '24px', height: '24px' },
+    style: { width: _size, height: _size },
   });
 
   return (

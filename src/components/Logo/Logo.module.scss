@@ -1,0 +1,11 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__label {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+}

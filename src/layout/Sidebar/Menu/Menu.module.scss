@@ -1,0 +1,36 @@
+@import '@/theme/variables.scss';
+
+.menu {
+  width: 100%;
+  border-radius: 8px;
+  background: $background-base;
+  padding: 8px 12px;
+
+  &__item {
+    padding: 4px 12px;
+  }
+
+  &__link {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+
+    color: $link-base;
+    transition: color 0.15s ease-in;
+
+    &--active {
+      color: $link-hover;
+    }
+
+    &:hover {
+      color: $link-hover;
+    }
+  }
+
+  &__label {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}

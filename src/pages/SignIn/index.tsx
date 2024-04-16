@@ -1,3 +1,4 @@
+import { Button, Logo } from '@/components';
 import { diContainer } from '@/container';
 import { DiTypes } from '@/container/types';
 import { AuthContext } from '@/context/AuthContext';
@@ -6,6 +7,7 @@ import { setLocalStorage } from '@/utils/localStorage';
 import { getSignInUrl } from '@/utils/spotifyService';
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from './SignIn.module.scss';
 
 export function SignIn() {
   const { setAccessToken } = useContext(AuthContext);
@@ -28,8 +30,9 @@ export function SignIn() {
   };
 
   return (
-    <div>
-      <button onClick={signIn}>SignIn</button>
+    <div className={styles['sign-in']}>
+      <Logo />
+      <Button onClick={signIn}>SignIn</Button>
     </div>
   );
 }

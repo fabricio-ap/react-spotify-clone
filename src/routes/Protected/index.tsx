@@ -1,29 +1,31 @@
 import { AuthContext } from '@/context/AuthContext';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-import { Layout, Main, Sidebar } from '@/layout';
+import { Layout } from '@/layout';
 import { unAuth } from '@/utils/spotifyService';
 import { useContext, useEffect } from 'react';
 import { Outlet as RouterOutlet } from 'react-router-dom';
 
 export function Protected() {
   const { token, setCurrentUser } = useContext(AuthContext);
-  const { user } = useCurrentUser();
+  const { user, isLoading } = useCurrentUser();
 
   useEffect(() => {
     if (!token) unAuth();
+  }, []);
 
+  useEffect(() => {
     if (user) {
       setCurrentUser(user);
     }
-  }, []);
+  }, [user]);
+
+  if (isLoading) {
+    return <>carregando...</>;
+  }
 
   return (
     <Layout>
-      <Sidebar />
-
-      <Main>
-        <RouterOutlet />
-      </Main>
+      <RouterOutlet />
     </Layout>
   );
 }
