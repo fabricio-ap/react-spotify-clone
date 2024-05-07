@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json,scss} --config ./.prettierrc",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate": "node --loader ts-node/esm node_modules/plop/bin/plop"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.29.2",
@@ -16,9 +17,11 @@
     "axios": "^1.6.8",
     "classnames": "^2.5.1",
     "inversify": "^6.0.2",
+    "plop": "^4.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@types/node": "^20.11.20",

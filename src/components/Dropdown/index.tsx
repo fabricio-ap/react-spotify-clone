@@ -14,8 +14,6 @@ interface IMenu {
 }
 
 export function Dropdown({ children, menu }: IDropdown & DropDownProps) {
-  console.log({ menu });
-
   return (
     <AntDropdown
       menu={{ items: menu }}

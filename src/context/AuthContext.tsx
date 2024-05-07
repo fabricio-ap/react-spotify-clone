@@ -1,5 +1,5 @@
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { IUser } from '@/types/IUser';
-import { getLocalStorage } from '@/utils/localStorage';
 import { Context, createContext, useState } from 'react';
 
 interface AuthProviderProps {
@@ -23,7 +23,9 @@ const initialState: AuthContextType = {
 export const AuthContext: Context<AuthContextType> = createContext<AuthContextType>(initialState);
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [token, setToken] = useState<string>(getLocalStorage('access_token') || '');
+  const { get } = useLocalStorage();
+
+  const [token, setToken] = useState<string>(get('access_token') || '');
   const [user, setUser] = useState<IUser | null>(null);
 
   function setAccessToken(token: string) {

@@ -11,13 +11,13 @@ export function Protected() {
 
   useEffect(() => {
     if (!token) unAuth();
-  }, []);
+  });
 
   useEffect(() => {
     if (user) {
       setCurrentUser(user);
     }
-  }, [user]);
+  }, [user, setCurrentUser]);
 
   if (isLoading) {
     return <>carregando...</>;

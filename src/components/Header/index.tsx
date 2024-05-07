@@ -16,7 +16,7 @@ export function Header({ profile, onSignOut }: IHeader) {
     {
       key: 'signOut',
       label: 'Sair',
-      icon: <Icon icon='exit' />,
+      icon: <Icon icon='exit' size={16} />,
       onClick: onSignOut,
     },
   ];
@@ -25,7 +25,7 @@ export function Header({ profile, onSignOut }: IHeader) {
     <div className={styles.header}>
       <Dropdown menu={menu}>
         <div className={styles.header__avatar}>
-          <Tooltip text={display_name} placement='right'>
+          <Tooltip text={display_name} placement='right' mouseEnterDelay={0.5}>
             <img src={images[0].url} alt={display_name} />
           </Tooltip>
         </div>

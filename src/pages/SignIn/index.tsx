@@ -2,8 +2,8 @@ import { Button, Logo } from '@/components';
 import { diContainer } from '@/container';
 import { DiTypes } from '@/container/types';
 import { AuthContext } from '@/context/AuthContext';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { ISpotifyService } from '@/services/SpotifyService/types';
-import { setLocalStorage } from '@/utils/localStorage';
 import { getSignInUrl } from '@/utils/spotifyService';
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +11,7 @@ import styles from './SignIn.module.scss';
 
 export function SignIn() {
   const { setAccessToken } = useContext(AuthContext);
+  const { set } = useLocalStorage();
   const navigate = useNavigate();
 
   const spotifyService = diContainer.get<ISpotifyService>(DiTypes.SPOTIFY_SERVICE);
@@ -19,7 +20,7 @@ export function SignIn() {
     const token = spotifyService.verifyTokenUrlCallback();
 
     if (token) {
-      setLocalStorage('access_token', token);
+      set('access_token', token);
       setAccessToken(token);
       navigate('/');
     }

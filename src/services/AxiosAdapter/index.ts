@@ -1,4 +1,3 @@
-import { getLocalStorage } from '@/utils/localStorage';
 import { unAuth } from '@/utils/spotifyService';
 import type { AxiosInstance } from 'axios';
 import axios from 'axios';
@@ -11,8 +10,6 @@ import 'reflect-metadata';
 export class AxiosAdapter implements IHttpClient {
   private api!: AxiosInstance;
 
-  constructor() {}
-
   setup() {
     this.api = axios.create({
       baseURL: 'https://api.spotify.com/v1',
@@ -24,9 +21,9 @@ export class AxiosAdapter implements IHttpClient {
   private setInterceptors() {
     this.api.interceptors.request.use(
       (config) => {
-        const token = getLocalStorage('access_token');
+        const token = localStorage.getItem('access_token');
 
-        config.headers.Authorization = 'Bearer ' + token;
+        config.headers.Authorization = 'Bearer ' + token?.replace(/["]/g, '');
 
         return config;
       },

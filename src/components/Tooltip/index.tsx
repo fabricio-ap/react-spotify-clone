@@ -6,9 +6,9 @@ interface ITooltip {
   text: string;
 }
 
-export function Tooltip({ children, text, placement }: ITooltip & TooltipProps) {
+export function Tooltip({ children, text, placement, ...props }: ITooltip & TooltipProps) {
   return (
-    <AntTooltip title={text} placement={placement || 'bottomLeft'} arrow={false}>
+    <AntTooltip title={text} placement={placement || 'bottomLeft'} arrow={false} {...props}>
       {children}
     </AntTooltip>
   );

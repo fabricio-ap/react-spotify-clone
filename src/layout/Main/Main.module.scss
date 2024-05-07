@@ -9,4 +9,11 @@
   box-sizing: border-box;
   background: $background-base;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+  }
 }

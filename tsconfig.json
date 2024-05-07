@@ -21,6 +21,7 @@
     "noFallthroughCasesInSwitch": true,
 
     /* import */
+    "allowSyntheticDefaultImports": true,
     "types": ["node", "reflect-metadata"],
     "baseUrl": "./src",
     "paths": {
@@ -31,7 +32,6 @@
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
 
     /* injection */
-    "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
