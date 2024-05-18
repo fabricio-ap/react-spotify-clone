@@ -4,4 +4,7 @@ export * from './Header';
 export * from './Icon';
 export * from './Logo';
 export * from './Media';
+export * from './Scroll';
+export * from './Skeleton';
+export * from './Table';
 export * from './Tooltip';

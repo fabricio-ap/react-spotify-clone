@@ -18,3 +18,21 @@ body {
   background-color: $background-press;
   color: $text-subdued;
 }
+
+.ant-table-tbody > tr {
+  & > td {
+    border: none !important;
+    vertical-align: middle !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+
+  &:first-child > td {
+    padding-top: 16px !important;
+  }
+}
+
+.ant-table-thead > tr > th {
+  margin-bottom: 8px;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1) !important;
+}

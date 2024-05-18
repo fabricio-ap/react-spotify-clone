@@ -1,5 +1,7 @@
 import { NodePlopAPI } from 'plop';
 
+const baseGenerate = 'generate';
+
 export default function (plop: NodePlopAPI) {
   plop.setGenerator('component', {
     description: 'Gerador de componentes React!',
@@ -14,12 +16,12 @@ export default function (plop: NodePlopAPI) {
       {
         type: 'add',
         path: 'src/components/{{name}}/index.tsx',
-        templateFile: 'template/components/Component.tsx',
+        templateFile: `${baseGenerate}/components/Component.tsx`,
       },
       {
         type: 'add',
         path: 'src/components/{{name}}/{{name}}.module.scss',
-        templateFile: 'template/components/Component.module.scss',
+        templateFile: `${baseGenerate}/components/Component.module.scss`,
       },
     ],
   });

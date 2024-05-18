@@ -16,6 +16,10 @@ export function Router() {
           path: '/search',
           element: <Search />,
         },
+        {
+          path: '/playlists/:id',
+          element: <>Playlist</>,
+        },
       ],
     },
     {

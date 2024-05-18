@@ -1,0 +1,13 @@
+@import '@/theme/variables.scss';
+
+.table {
+  width: 100%;
+  padding: 0 16px;
+
+  &__cell {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}

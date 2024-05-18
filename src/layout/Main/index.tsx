@@ -1,4 +1,4 @@
-import { Header } from '@/components';
+import { Header, Scroll } from '@/components';
 import { AuthContext } from '@/context';
 import { unAuth } from '@/utils/spotifyService';
 import { ReactNode, useContext } from 'react';
@@ -19,7 +19,11 @@ export function Main({ children }: IMain) {
     <div className={styles.main}>
       {user && <Header profile={user} onSignOut={handleSignOut} />}
 
-      <div className={styles.main__content}>{children}</div>
+      <div className={styles.main__wrapper}>
+        <Scroll>
+          <div className={styles.main__content}>{children}</div>
+        </Scroll>
+      </div>
     </div>
   );
 }

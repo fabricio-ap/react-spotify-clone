@@ -1,0 +1,64 @@
+@import '@/theme/variables.scss';
+
+.media {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+
+  &--is-clickable {
+    cursor: pointer;
+
+    &:hover {
+      background: $background-highlight;
+    }
+  }
+
+  &--no-padding {
+    padding: 0;
+  }
+
+  &__image {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 4px;
+
+    &--small {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+
+    overflow: hidden;
+
+    & > * {
+      width: 100%;
+      text-wrap: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &--small {
+      gap: 2px;
+    }
+  }
+
+  &__title {
+    color: $text-base;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  &__description {
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+}

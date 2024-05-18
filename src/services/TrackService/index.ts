@@ -1,17 +1,17 @@
 import { DiTypes } from '@/container/types';
 import { inject, injectable } from 'inversify';
 import type { IHttpClient } from '../AxiosAdapter/types';
-import { IPlaylistResponse, IPlaylistService } from './types';
+import { ITrackResponse, ITrackService } from './types';
 
 import 'reflect-metadata';
 
 @injectable()
-export class PlaylistService implements IPlaylistService {
+export class TrackService implements ITrackService {
   @inject(DiTypes.HTTP_CLIENT)
   private api!: IHttpClient;
 
-  async getCurrentUserPlaylists() {
-    const response = await this.api.get<IPlaylistResponse>({ url: '/me/playlists' });
+  async getCurrentUserSavedTracks() {
+    const response = await this.api.get<ITrackResponse>({ url: '/me/tracks' });
 
     if (response.status !== 200 || !response.data) {
       return;
