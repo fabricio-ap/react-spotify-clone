@@ -12,6 +12,11 @@
     "generate": "node --loader ts-node/esm node_modules/plop/bin/plop",
     "prepare": "husky"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "dependencies": {
     "@tanstack/react-query": "^5.29.2",
     "antd": "^5.16.2",
