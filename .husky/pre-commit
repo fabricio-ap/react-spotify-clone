@@ -1,5 +1,8 @@
-echo "Tests"
-echo "-------------------------------------------------------------------------------------------"
+echo "Commitlint"
+npx --no -- commitlint --edit $1
+
+echo "Test"
+npm run test
 
 echo "Build"
 npm run build
