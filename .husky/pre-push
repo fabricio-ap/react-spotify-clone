@@ -1,0 +1,6 @@
+echo
+
+echo "Build"
+npm run build
+
+echo
