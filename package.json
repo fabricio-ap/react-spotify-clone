@@ -10,13 +10,7 @@
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json,scss} --config ./.prettierrc",
     "preview": "vite preview",
     "generate": "node --loader ts-node/esm node_modules/plop/bin/plop",
-    "prepare": "husky",
-    "commitlint": "commitlint --config commitlint.config.js"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "prepare": "husky"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.29.2",
@@ -31,8 +25,6 @@
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
     "@types/node": "^20.11.20",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
