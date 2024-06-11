@@ -2,6 +2,7 @@ import { diContainer } from '@/container';
 import { DiTypes } from '@/container/types';
 import { ITrackResponse, ITrackService } from '@/services/TrackService/types';
 import { useQuery } from '@tanstack/react-query';
+import { FavoriteArtist } from './FavoriteArtist';
 import styles from './Home.module.scss';
 import { SavedTracks } from './SavedTracks';
 
@@ -10,8 +11,8 @@ export function Home() {
 
   const {
     data: userSavedTracks,
-    isLoading: userSavedTracksLoading,
-    isFetching: userSavedTracksFetching,
+    isLoading: savedTracksLoading,
+    isFetching: savedTracksFetching,
   } = useQuery<ITrackResponse | undefined>({
     queryKey: ['userSavedTracks'],
     queryFn: () => trackService.getCurrentUserSavedTracks(),
@@ -19,10 +20,17 @@ export function Home() {
 
   return (
     <div className={styles.home}>
-      <SavedTracks
-        tracks={userSavedTracks?.items}
-        isLoading={userSavedTracksLoading || userSavedTracksFetching}
-      />
+      <div className={styles.home__section}>
+        <h4 className={styles.home__title}>Artista Favorito</h4>
+        <FavoriteArtist />
+      </div>
+      <div className={styles.home__section}>
+        <h4 className={styles.home__title}>Músicas Curtidas</h4>
+        <SavedTracks
+          tracks={userSavedTracks?.items}
+          isLoading={savedTracksLoading || savedTracksFetching}
+        />
+      </div>
     </div>
   );
 }

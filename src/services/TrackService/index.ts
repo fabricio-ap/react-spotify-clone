@@ -10,8 +10,22 @@ export class TrackService implements ITrackService {
   @inject(DiTypes.HTTP_CLIENT)
   private api!: IHttpClient;
 
+  private savedTracksAbort!: AbortController | null;
+
   async getCurrentUserSavedTracks() {
-    const response = await this.api.get<ITrackResponse>({ url: '/me/tracks' });
+    if (this.savedTracksAbort) {
+      this.savedTracksAbort.abort();
+    }
+
+    this.savedTracksAbort = new AbortController();
+    const signal = this.savedTracksAbort.signal;
+
+    const response = await this.api.get<ITrackResponse>({
+      url: '/me/tracks',
+      config: {
+        signal,
+      },
+    });
 
     if (response.status !== 200 || !response.data) {
       return;

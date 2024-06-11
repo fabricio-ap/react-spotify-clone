@@ -25,14 +25,24 @@ body {
     vertical-align: middle !important;
     padding-top: 8px !important;
     padding-bottom: 8px !important;
+
+    &:first-child {
+      border: none;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
   }
 
   &:first-child > td {
-    padding-top: 16px !important;
+    margin-top: 16px !important;
   }
 }
 
 .ant-table-thead > tr > th {
-  margin-bottom: 8px;
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.1) !important;
 }

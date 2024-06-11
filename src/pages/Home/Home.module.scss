@@ -5,4 +5,20 @@
   height: 100%;
   padding: 0 20px;
   background: $background-base;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__title {
+    color: $text-base;
+    font-weight: 700;
+    font-size: 18px;
+  }
 }

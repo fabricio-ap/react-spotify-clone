@@ -3,9 +3,13 @@
   width: 100%;
   height: auto;
 
-  &__duration {
+  &__center {
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+
+  &__index {
+    cursor: pointer;
   }
 }

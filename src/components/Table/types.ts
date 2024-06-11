@@ -1,9 +1,16 @@
 import { TableProps } from 'antd';
 
-export type ICellAlign = 'start' | 'center' | 'end';
-
 export type IColumnTable<T> = TableProps<T>['columns'][];
 
-export type IDataSource<T> = {
-  [K in keyof T]: T[K];
-};
+export type GetComponentProps<DataType> = (
+  data: DataType,
+  index?: number,
+) => React.HTMLAttributes<unknown> & React.TdHTMLAttributes<unknown>;
+
+export interface IOnRow {
+  onClick?: () => void; // click row
+  onDoubleClick?: () => void; // double click row
+  onContextMenu?: () => void; // right button click row
+  onMouseEnter?: () => void; // mouse enter row
+  onMouseLeave?: () => void; // mouse leave row
+}

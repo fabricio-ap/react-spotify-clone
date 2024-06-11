@@ -15,8 +15,8 @@ const diContainer = new Container();
 diContainer.bind<IHttpClient>(DiTypes.HTTP_CLIENT).to(HttpClient);
 
 // Services
-diContainer.bind<ISpotifyService>(DiTypes.SPOTIFY_SERVICE).to(SpotifyService);
-diContainer.bind<IPlaylistService>(DiTypes.PLAYLIST_SERVICE).to(PlaylistService);
-diContainer.bind<ITrackService>(DiTypes.TRACK_SERVICE).to(TrackService);
+diContainer.bind<ISpotifyService>(DiTypes.SPOTIFY_SERVICE).to(SpotifyService).inSingletonScope();
+diContainer.bind<IPlaylistService>(DiTypes.PLAYLIST_SERVICE).to(PlaylistService).inSingletonScope();
+diContainer.bind<ITrackService>(DiTypes.TRACK_SERVICE).to(TrackService).inSingletonScope();
 
 export { diContainer };

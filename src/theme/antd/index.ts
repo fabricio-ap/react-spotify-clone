@@ -25,6 +25,7 @@ const antComponents: ComponentsConfig = {
     headerBg: 'rgba(0, 0, 0, 0)',
     headerSplitColor: 'rgba(0, 0, 0, 0)',
     colorBgContainer: 'rgba(0, 0, 0, 0)',
+    rowHoverBg: 'hsla(0, 0%, 100%, .1)',
     headerColor: tokens.colorTextSubdued,
     colorText: tokens.colorTextSubdued,
     padding: 8,

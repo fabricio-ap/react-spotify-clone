@@ -50,8 +50,8 @@ export class AxiosAdapter implements IHttpClient {
 
   async get<T>(params: IHttpGetParams): Promise<IHttpResponse<T>> {
     const request = await this.api.get(params.url, {
-      params: params.queryParams,
       ...params.config,
+      params: params.queryParams,
     });
 
     return { ...request };
