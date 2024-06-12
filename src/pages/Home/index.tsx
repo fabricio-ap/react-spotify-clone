@@ -6,7 +6,7 @@ import { FavoriteArtist } from './FavoriteArtist';
 import styles from './Home.module.scss';
 import { SavedTracks } from './SavedTracks';
 
-export function Home() {
+export default function Home() {
   const trackService = diContainer.get<ITrackService>(DiTypes.TRACK_SERVICE);
 
   const {

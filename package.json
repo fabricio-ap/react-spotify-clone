@@ -9,8 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json,scss} --config ./.prettierrc",
     "preview": "vite preview",
-    "generate": "node --loader ts-node/esm node_modules/plop/bin/plop",
-    "prepare": "husky"
+    "generate": "node --loader ts-node/esm node_modules/plop/bin/plop"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.29.2",

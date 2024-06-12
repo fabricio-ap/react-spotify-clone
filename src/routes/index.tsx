@@ -1,6 +1,16 @@
-import { Home, Search, SignIn } from '@/pages';
+import { ReactNode, Suspense, lazy } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Protected } from './Protected';
+
+const Pages = {
+  SignIn: lazy(() => import('@/pages/SignIn')),
+  Home: lazy(() => import('@/pages/Home')),
+  Search: lazy(() => import('@/pages/Search')),
+};
+
+const SuspensePage = ({ children }: { children: ReactNode }) => {
+  return <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>;
+};
 
 export function Router() {
   const router = createBrowserRouter([
@@ -10,11 +20,19 @@ export function Router() {
       children: [
         {
           path: '/',
-          element: <Home />,
+          element: (
+            <SuspensePage>
+              <Pages.Home />
+            </SuspensePage>
+          ),
         },
         {
           path: '/search',
-          element: <Search />,
+          element: (
+            <SuspensePage>
+              <Pages.Search />
+            </SuspensePage>
+          ),
         },
         {
           path: '/playlists/:id',
@@ -24,7 +42,11 @@ export function Router() {
     },
     {
       path: '/sign-in',
-      element: <SignIn />,
+      element: (
+        <SuspensePage>
+          <Pages.SignIn />
+        </SuspensePage>
+      ),
     },
   ]);
 

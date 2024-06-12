@@ -9,7 +9,7 @@ import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './SignIn.module.scss';
 
-export function SignIn() {
+export default function SignIn() {
   const { setAccessToken } = useContext(AuthContext);
   const { set } = useLocalStorage();
   const navigate = useNavigate();
