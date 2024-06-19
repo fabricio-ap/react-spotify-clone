@@ -1,4 +1,5 @@
-import { ReactNode, Suspense, lazy } from 'react';
+import { SuspensePage } from '@/components';
+import { lazy } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Protected } from './Protected';
 
@@ -6,10 +7,6 @@ const Pages = {
   SignIn: lazy(() => import('@/pages/SignIn')),
   Home: lazy(() => import('@/pages/Home')),
   Search: lazy(() => import('@/pages/Search')),
-};
-
-const SuspensePage = ({ children }: { children: ReactNode }) => {
-  return <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>;
 };
 
 export function Router() {
