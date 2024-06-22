@@ -1,6 +1,6 @@
 import { MappingAlgorithm, OverrideToken } from 'antd/es/theme/interface';
 import { AliasToken } from 'antd/es/theme/internal';
-import { tokens } from '../tokens';
+import { tokens } from '../tokens/js';
 
 type ComponentsConfig = {
   [key in keyof OverrideToken]?: OverrideToken[key] & {
