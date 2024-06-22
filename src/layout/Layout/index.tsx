@@ -1,8 +1,10 @@
-import { ReactNode } from 'react';
-import { Main } from '../Main';
-import { Player } from '../Player';
-import { Sidebar } from '../Sidebar';
+import { Suspense } from '@/components';
+import { ReactNode, lazy } from 'react';
 import styles from './Layout.module.scss';
+
+const Sidebar = lazy(() => import('../Sidebar'));
+const Main = lazy(() => import('../Main'));
+const Player = lazy(() => import('../Player'));
 
 interface ILayout {
   children: ReactNode;
@@ -11,11 +13,13 @@ interface ILayout {
 export function Layout({ children }: ILayout) {
   return (
     <div className={styles.layout}>
-      <Sidebar />
+      <Suspense>
+        <Sidebar />
 
-      <Main>{children}</Main>
+        <Main>{children}</Main>
 
-      <Player />
+        <Player />
+      </Suspense>
     </div>
   );
 }

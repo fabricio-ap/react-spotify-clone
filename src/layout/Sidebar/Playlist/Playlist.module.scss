@@ -1,27 +1,27 @@
-@import '@/theme/variables.scss';
+@import '@/theme/variables';
+@import '@/theme/mixins';
 
 .playlist {
   height: 100%;
   width: 100%;
   border-radius: 8px;
   background: $background-base;
-
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
   overflow: auto;
+
+  @include flex;
+
+  align-items: flex-start;
+  flex-direction: column;
 
   &__title {
     height: 40px;
     padding: 12px 24px 4px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+
+    @include flex;
 
     & > span {
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: 800;
       cursor: default;
     }
   }

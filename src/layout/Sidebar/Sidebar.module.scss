@@ -1,36 +1,18 @@
-@import '@/theme/variables.scss';
+@import '@/theme/variables';
+@import '@/theme/mixins';
 
 .sidebar {
   grid-area: sidebar;
-
   width: 280px;
   height: 100%;
-  display: flex;
+
+  @include flex;
+
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
 
   &__section {
     width: 100%;
     border-radius: 8px;
     background: $background-base;
-  }
-
-  &__list {
-    padding: 8px 12px;
-  }
-}
-
-.playlist {
-  height: 100%;
-
-  &__title {
-    padding: 4px 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: default;
   }
 }

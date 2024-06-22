@@ -1,51 +1,8 @@
-import { SuspensePage } from '@/components';
-import { lazy } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Protected } from './Protected';
-
-const Pages = {
-  SignIn: lazy(() => import('@/pages/SignIn')),
-  Home: lazy(() => import('@/pages/Home')),
-  Search: lazy(() => import('@/pages/Search')),
-};
+import { routes } from './routes';
 
 export function Router() {
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <Protected />,
-      children: [
-        {
-          path: '/',
-          element: (
-            <SuspensePage>
-              <Pages.Home />
-            </SuspensePage>
-          ),
-        },
-        {
-          path: '/search',
-          element: (
-            <SuspensePage>
-              <Pages.Search />
-            </SuspensePage>
-          ),
-        },
-        {
-          path: '/playlists/:id',
-          element: <>Playlist</>,
-        },
-      ],
-    },
-    {
-      path: '/sign-in',
-      element: (
-        <SuspensePage>
-          <Pages.SignIn />
-        </SuspensePage>
-      ),
-    },
-  ]);
+  const router = createBrowserRouter(routes);
 
   return <RouterProvider router={router} />;
 }

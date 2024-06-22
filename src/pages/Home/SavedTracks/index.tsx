@@ -16,7 +16,7 @@ interface ISavedTracks {
   isLoading: boolean;
 }
 
-export function SavedTracks({ tracks = [], isLoading }: ISavedTracks) {
+export default function SavedTracks({ tracks = [], isLoading }: ISavedTracks) {
   const { columns, dataSource } = buildDataSource(tracks);
 
   if (isLoading) {

@@ -1,0 +1,32 @@
+@import './variables';
+
+// Fonts
+@import './tokens/font/size';
+@import './tokens/font/height';
+@import './tokens/font/weight';
+
+// Flex Container
+@mixin flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+// Fonts
+@mixin font-body {
+  font-size: map-get($map: $font-size, $key: 'body');
+  line-height: map-get($map: $font-height, $key: 'body');
+  font-weight: map-get($map: $font-weight, $key: 'regular');
+}
+
+@mixin font-caption {
+  font-size: map-get($map: $font-size, $key: 'caption');
+  line-height: map-get($map: $font-height, $key: 'caption');
+  font-weight: map-get($map: $font-weight, $key: 'regular');
+}
+
+@mixin font-heading-sm {
+  font-size: map-get($map: $font-size, $key: 'heading-sm');
+  line-height: map-get($map: $font-height, $key: 'heading-sm');
+  font-weight: map-get($map: $font-weight, $key: 'regular');
+}

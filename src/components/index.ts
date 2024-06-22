@@ -6,6 +6,6 @@ export * from './Logo';
 export * from './Media';
 export * from './Scroll';
 export * from './Skeleton';
-export * from './SuspensePage';
+export * from './Suspense';
 export * from './Table';
 export * from './Tooltip';

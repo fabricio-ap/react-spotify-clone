@@ -8,7 +8,7 @@ interface IMain {
   children: ReactNode;
 }
 
-export function Main({ children }: IMain) {
+export default function Main({ children }: IMain) {
   const { user } = useContext(AuthContext);
 
   const handleSignOut = () => {

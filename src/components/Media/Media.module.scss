@@ -1,11 +1,11 @@
-@import '@/theme/variables.scss';
+@import '@/theme/variables';
+@import '@/theme/mixins';
 
 .media {
   padding: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
   border-radius: 6px;
+
+  @include flex;
 
   &--is-clickable {
     cursor: pointer;
@@ -32,10 +32,10 @@
   }
 
   &__info {
-    display: flex;
+    @include flex;
+
     flex-direction: column;
     justify-content: center;
-    gap: 8px;
 
     overflow: hidden;
 
@@ -52,13 +52,12 @@
   }
 
   &__title {
+    @include font-body;
+
     color: $text-base;
-    font-size: 0.9rem;
-    font-weight: 400;
   }
 
   &__description {
-    font-size: 0.8rem;
-    font-weight: 400;
+    @include font-caption;
   }
 }

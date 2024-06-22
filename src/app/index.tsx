@@ -1,10 +1,10 @@
 import { queryClient } from '@/config/reactQuery';
 import { AuthProvider } from '@/context';
 import { Router } from '@/routes';
+import { antTheme } from '@/theme/antd';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ConfigProvider } from 'antd';
 
-import { antTheme } from '@/theme/antd';
 import '@/theme/global.scss';
 import '@/theme/reset.scss';
 

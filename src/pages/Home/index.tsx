@@ -1,10 +1,13 @@
+import { Suspense } from '@/components';
 import { diContainer } from '@/container';
 import { DiTypes } from '@/container/types';
 import { ITrackResponse, ITrackService } from '@/services/TrackService/types';
 import { useQuery } from '@tanstack/react-query';
-import { FavoriteArtist } from './FavoriteArtist';
+import { lazy } from 'react';
 import styles from './Home.module.scss';
-import { SavedTracks } from './SavedTracks';
+
+const FavoriteArtist = lazy(() => import('./FavoriteArtist'));
+const SavedTracks = lazy(() => import('./SavedTracks'));
 
 export default function Home() {
   const trackService = diContainer.get<ITrackService>(DiTypes.TRACK_SERVICE);
@@ -22,14 +25,18 @@ export default function Home() {
     <div className={styles.home}>
       <div className={styles.home__section}>
         <h4 className={styles.home__title}>Artista Favorito</h4>
-        <FavoriteArtist />
+        <Suspense>
+          <FavoriteArtist />
+        </Suspense>
       </div>
       <div className={styles.home__section}>
         <h4 className={styles.home__title}>Músicas Curtidas</h4>
-        <SavedTracks
-          tracks={userSavedTracks?.items}
-          isLoading={savedTracksLoading || savedTracksFetching}
-        />
+        <Suspense>
+          <SavedTracks
+            tracks={userSavedTracks?.items}
+            isLoading={savedTracksLoading || savedTracksFetching}
+          />
+        </Suspense>
       </div>
     </div>
   );

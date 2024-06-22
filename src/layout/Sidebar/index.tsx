@@ -6,7 +6,7 @@ import { Menu } from './Menu';
 import { Playlist } from './Playlist';
 import styles from './Sidebar.module.scss';
 
-export function Sidebar() {
+export default function Sidebar() {
   const playlistService = diContainer.get<IPlaylistService>(DiTypes.PLAYLIST_SERVICE);
 
   const {
@@ -21,6 +21,7 @@ export function Sidebar() {
   return (
     <div className={styles.sidebar}>
       <Menu />
+
       <Playlist playlist={userPlaylist?.items} isLoading={isLoading || isFetching} />
     </div>
   );

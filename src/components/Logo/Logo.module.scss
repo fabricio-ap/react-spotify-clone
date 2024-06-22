@@ -1,7 +1,7 @@
+@import '@/theme/mixins';
+
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  @include flex;
 
   &__label {
     font-weight: 700;

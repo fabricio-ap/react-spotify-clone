@@ -1,3 +1,3 @@
-export function FavoriteArtist() {
+export default function FavoriteArtist() {
   return <div>Artista fav</div>;
 }

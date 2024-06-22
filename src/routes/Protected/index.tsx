@@ -1,6 +1,6 @@
 import { AuthContext } from '@/context/AuthContext';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-import { Layout } from '@/layout';
+import { Layout } from '@/layout/Layout';
 import { unAuth } from '@/utils/spotifyService';
 import { useContext, useEffect } from 'react';
 import { Outlet as RouterOutlet } from 'react-router-dom';
