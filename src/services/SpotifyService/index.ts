@@ -1,7 +1,7 @@
 import { DiTypes } from '@/container/types';
 import { IUser } from '@/types/IUser';
 import { inject, injectable } from 'inversify';
-import type { IHttpClient } from '../AxiosAdapter/types';
+import type { IHttpClient } from '../../plugin/AxiosAdapter/types';
 import { ISpotifyService } from './types';
 
 import 'reflect-metadata';

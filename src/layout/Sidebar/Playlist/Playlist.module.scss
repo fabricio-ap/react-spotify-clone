@@ -1,4 +1,4 @@
-@import '@/theme/variables';
+@import '@/theme/tokens';
 @import '@/theme/mixins';
 
 .playlist {
@@ -35,5 +35,14 @@
     flex-direction: column;
     gap: 4px;
     background: $background-base;
+  }
+
+  &__item {
+    cursor: pointer;
+    border-radius: 4px;
+
+    &:hover {
+      background: $background-highlight;
+    }
   }
 }

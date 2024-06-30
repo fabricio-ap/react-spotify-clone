@@ -1,14 +1,16 @@
 import { Table } from '@/components';
 import { ITrack } from '@/types/ITrack';
+import { useState } from 'react';
 import { buildDataSource } from './DataSource';
 import styles from './SavedTracks.module.scss';
 
 export interface ITrackTableItem {
-  key: string;
+  id: string;
   index: number;
   title: string;
-  duration: string;
   album: string;
+  added: string;
+  duration: string;
 }
 
 interface ISavedTracks {
@@ -17,7 +19,13 @@ interface ISavedTracks {
 }
 
 export default function SavedTracks({ tracks = [], isLoading }: ISavedTracks) {
-  const { columns, dataSource } = buildDataSource(tracks);
+  const [hoveredTrack, setHoveredTrack] = useState<ITrackTableItem | undefined>();
+
+  const { columns, dataSource } = buildDataSource(tracks, hoveredTrack);
+
+  function onHover(record?: ITrackTableItem) {
+    setHoveredTrack(record);
+  }
 
   if (isLoading) {
     return <>Carregando...</>;
@@ -25,20 +33,7 @@ export default function SavedTracks({ tracks = [], isLoading }: ISavedTracks) {
 
   return (
     <div className={styles.table}>
-      <Table
-        column={columns}
-        dataSource={dataSource}
-        onRow={(record, rowIndex) => {
-          return {
-            onMouseEnter: () => {
-              return record;
-            },
-            onMouseLeave: () => {
-              return rowIndex;
-            },
-          };
-        }}
-      />
+      <Table column={columns} dataSource={dataSource} onHover={onHover} onHoverOut={onHover} />
     </div>
   );
 }

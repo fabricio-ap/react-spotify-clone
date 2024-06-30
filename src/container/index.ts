@@ -1,4 +1,4 @@
-import { IHttpClient } from '@/services/AxiosAdapter/types';
+import { IHttpClient } from '@/plugin/AxiosAdapter/types';
 import { HttpClient } from '@/services/HttpClient';
 import { PlaylistService } from '@/services/PlaylistService';
 import { IPlaylistService } from '@/services/PlaylistService/types';

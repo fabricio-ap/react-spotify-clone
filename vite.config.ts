@@ -24,4 +24,14 @@ export default defineConfig({
   //     },
   //   },
   // },
+  // css: {
+  //   preprocessorOptions: {
+  //     scss: {
+  //       additionalData: `
+  //         @use "@/theme/tokens" as *;
+  //         @use "@/theme/mixins" as *;
+  //       `,
+  //     },
+  //   },
+  // },
 });

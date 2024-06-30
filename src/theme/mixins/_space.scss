@@ -1,0 +1,8 @@
+@use '../tokens' as *;
+
+// Flex Container
+@mixin flex {
+  display: flex;
+  align-items: center;
+  gap: map-get($map: $gap, $key: 'md');
+}

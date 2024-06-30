@@ -1,22 +1,5 @@
-// Global
-@import './variables';
+@use '../tokens' as *;
 
-// Fonts
-@import './tokens/font/size';
-@import './tokens/font/height';
-@import './tokens/font/weight';
-
-// Spacing
-@import './tokens/spacing/spacing';
-
-// Flex Container
-@mixin flex {
-  display: flex;
-  align-items: center;
-  gap: map-get($map: $gap, $key: 'md');
-}
-
-// Fonts
 @mixin font-body {
   font-size: map-get($map: $font-size, $key: 'body');
   line-height: map-get($map: $font-height, $key: 'body');

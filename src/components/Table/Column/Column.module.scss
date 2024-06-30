@@ -1,0 +1,27 @@
+@import '@/theme/mixins';
+
+.column {
+  flex: 1;
+
+  @include flex;
+  @include font-caption;
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--right {
+    justify-content: flex-end;
+  }
+
+  &--no-flex {
+    flex: none;
+  }
+
+  &--ellipsis {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

@@ -1,5 +1,5 @@
+import { AxiosAdapter } from '@/plugin/AxiosAdapter';
 import { injectable } from 'inversify';
-import { AxiosAdapter } from '../AxiosAdapter';
 
 import 'reflect-metadata';
 

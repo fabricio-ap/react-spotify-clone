@@ -1,6 +1,6 @@
 import { DiTypes } from '@/container/types';
 import { inject, injectable } from 'inversify';
-import type { IHttpClient } from '../AxiosAdapter/types';
+import type { IHttpClient } from '../../plugin/AxiosAdapter/types';
 import { ITrackResponse, ITrackService } from './types';
 
 import 'reflect-metadata';

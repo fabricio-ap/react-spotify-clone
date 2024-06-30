@@ -1,4 +1,4 @@
-import { tokens } from '@/theme/tokens/js';
+import { tokens } from '@/theme/js';
 import { Skeleton } from 'antd';
 import { CSSProperties } from 'react';
 import styles from './Media.module.scss';

@@ -1,12 +1,27 @@
-@import '@/theme/variables';
+@import '@/theme/tokens';
+@import '@/theme/mixins';
 
 .table {
-  width: 100%;
+  &__row {
+    padding: 0 map-get($map: $padding, $key: 'lg');
+    gap: map-get($map: $gap, $key: 'lg');
 
-  &__cell {
-    width: fit-content;
-    height: 100%;
-    display: flex;
-    align-items: center;
+    @include flex;
+  }
+
+  &__header {
+    height: 35px;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+    margin-bottom: map-get($map: $padding, $key: 'md');
+  }
+
+  &__body {
+    min-height: 54px;
+
+    &:hover {
+      color: $text-base;
+      border-radius: 4px;
+      background: hsla(0, 0%, 100%, 0.1);
+    }
   }
 }

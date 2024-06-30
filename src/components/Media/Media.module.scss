@@ -1,4 +1,4 @@
-@import '@/theme/variables';
+@import '@/theme/tokens';
 @import '@/theme/mixins';
 
 .media {
@@ -6,14 +6,6 @@
   border-radius: 6px;
 
   @include flex;
-
-  &--is-clickable {
-    cursor: pointer;
-
-    &:hover {
-      background: $background-highlight;
-    }
-  }
 
   &--no-padding {
     padding: 0;

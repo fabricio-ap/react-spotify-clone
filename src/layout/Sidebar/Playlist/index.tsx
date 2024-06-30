@@ -1,4 +1,4 @@
-import { IMedia, Icon, Media, Scroll, Skeleton } from '@/components';
+import { Icon, Media, Scroll, Skeleton } from '@/components';
 import { IPlaylist as IPlaylistItem } from '@/types/IPlaylist';
 import { useNavigate } from 'react-router-dom';
 import styles from './Playlist.module.scss';
@@ -21,16 +21,16 @@ function Loading() {
 export function Playlist({ playlist = [], isLoading }: IPlaylist) {
   const navigate = useNavigate();
 
-  const mediaArr: IMedia[] = playlist.map((item) => ({
+  const mediaArr = playlist.map((item) => ({
     id: item.id,
     image: item.images[0].url,
     title: item.name,
     description: `Playlist • ${item.owner.display_name}`,
-    onClick: () => handleClickPlaylist(item),
+    link: `/playlists/${item.id}`,
   }));
 
-  const handleClickPlaylist = (item: IPlaylistItem) => {
-    navigate(`/playlists/${item.id}`);
+  const handleClickPlaylist = (link: string) => {
+    navigate(link);
   };
 
   return (
@@ -44,7 +44,16 @@ export function Playlist({ playlist = [], isLoading }: IPlaylist) {
         <div className={styles.playlist__list}>
           {isLoading && <Loading />}
 
-          {!isLoading && mediaArr.map((media) => <Media key={media.id} {...media} />)}
+          {!isLoading &&
+            mediaArr.map((media) => (
+              <div
+                key={media.id}
+                className={styles.playlist__item}
+                onClick={() => handleClickPlaylist(media.link)}
+              >
+                <Media {...media} />
+              </div>
+            ))}
         </div>
       </Scroll>
     </div>

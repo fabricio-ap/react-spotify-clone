@@ -1,20 +1,19 @@
 import classNames from 'classnames';
+import { ReactNode } from 'react';
 import styles from './Media.module.scss';
 
 export interface IMedia {
   id: string;
   image: string;
   title: string;
-  description: string;
+  description: string | ReactNode;
   noPadding?: boolean;
   small?: boolean;
-  onClick?: () => void;
 }
 
-export function Media({ image, title, description, noPadding, small, onClick }: IMedia) {
+export function Media({ image, title, description, noPadding, small }: IMedia) {
   const classname = {
     media: classNames(styles.media, {
-      [styles['media--is-clickable']]: onClick,
       [styles['media--no-padding']]: noPadding,
     }),
     media__image: classNames(styles.media__image, { [styles['media__image--small']]: small }),
@@ -22,7 +21,7 @@ export function Media({ image, title, description, noPadding, small, onClick }: 
   };
 
   return (
-    <div className={classname.media} onClick={onClick}>
+    <div className={classname.media}>
       <img className={classname.media__image} src={image} alt={title} />
 
       <div className={classname.media__info}>
